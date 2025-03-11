@@ -42,9 +42,7 @@ contract HelperConfig is Script {
     }
 
     function getMainNetConfig() public pure returns (NetworkConfig memory) {
-        NetworkConfig memory mainNetConfig = NetworkConfig({
-            priceFeed: 0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419
-        });
+        NetworkConfig memory mainNetConfig = NetworkConfig({priceFeed: 0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419});
         return mainNetConfig;
     }
 
@@ -57,10 +55,7 @@ contract HelperConfig is Script {
         // 2.Return the mock address
 
         vm.startBroadcast();
-        MockV3Aggregator mockV3Aggregator = new MockV3Aggregator(
-            DECIMALS,
-            INITIAL_PRICE
-        );
+        MockV3Aggregator mockV3Aggregator = new MockV3Aggregator(DECIMALS, INITIAL_PRICE);
         vm.stopBroadcast();
 
         return NetworkConfig({priceFeed: address(mockV3Aggregator)});

@@ -73,7 +73,7 @@ contract FundMeTest is Test {
         fundMe.fund{value: SEND_VALUE}();
 
         //expectRevert applies to the next line that is a TRANSACTION
-        //because vm.prank is not a transaction, it skips this line and applies to fundMe.withdraw
+        //because vm.prank is not a transaction, it skips this line and applies to fundMe.withdraw instead
         vm.expectRevert();
         vm.prank(USER);
         fundMe.withdraw();
