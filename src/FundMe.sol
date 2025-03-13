@@ -40,7 +40,7 @@ contract FundMe {
     }
 
     modifier onlyOwner() {
-        // require(msg.sender == owner);
+        require(msg.sender == owner);
         console.log("msg sender is %s", msg.sender);
         if (msg.sender != i_owner) revert NotOwner();
         _;
